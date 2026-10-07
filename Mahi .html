@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Mahi Akter ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Special+Elite&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:hidden;
+    background:#090604;
+}
+
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.bg{
+    position:fixed;
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #513b2a 0%,
+            #2b1d14 40%,
+            #100b08 75%,
+            #060403 100%
+        );
+}
+
+.bg::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    opacity:.12;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 3px,
+            #e6c89b 4px
+        );
+}
+
+.vignette{
+    position:fixed;
+    inset:0;
+    z-index:2;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 42%,
+            rgba(0,0,0,.75) 100%
+        );
+}
+
+
+/* =========================
+   DUST
+========================= */
+
+.dust{
+    position:fixed;
+    inset:0;
+    z-index:3;
+    pointer-events:none;
+}
+
+.dust span{
+    position:absolute;
+
+    width:2px;
+    height:2px;
+
+    border-radius:50%;
+
+    background:#e8cea6;
+
+    opacity:.25;
+
+    animation:dustFloat 7s infinite ease-in-out;
+}
+
+@keyframes dustFloat{
+
+    0%,100%{
+        transform:translateY(0);
+        opacity:.15;
+    }
+
+    50%{
+        transform:translateY(-30px);
+        opacity:.7;
+    }
+}
+
+
+/* ==================================================
+   IMPORTANT:
+   EVERYTHING IS CENTERED USING CSS GRID
+================================================== */
+
+.stage{
+    position:fixed;
+    inset:0;
+
+    z-index:10;
+
+    display:grid;
+    place-items:center;
+
+    width:100%;
+    height:100%;
+
+    padding:15px;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    width:100%;
+    text-align:center;
+
+    transition:
+        opacity .8s ease;
+}
+
+.intro.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.intro-small{
+    font-family:"Special Elite",serif;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    color:#b99b76;
+
+    margin-bottom:18px;
+}
+
+.intro h1{
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(65px,14vw,115px);
+
+    font-weight:400;
+
+    color:#ead7b8;
+}
+
+.line{
+    width:90px;
+    height:1px;
+
+    background:#a48764;
+
+    margin:18px auto;
+
+    opacity:.6;
+}
+
+.intro p{
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:15px;
+
+    line-height:2;
+
+    color:#c9b493;
+}
+
+.start-btn{
+    margin-top:30px;
+
+    padding:14px 30px;
+
+    border:1px solid #a98a66;
+
+    background:transparent;
+
+    color:#e0c39b;
+
+    font-family:"Special Elite",serif;
+
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.start-btn:hover{
+    background:#dfbf91;
+    color:#21150e;
+}
+
+
+/* ==================================================
+   ENVELOPE
+================================================== */
+
+.envelope-wrap{
+    display:none;
+
+    /* IMPORTANT:
+       This element itself never gets transformed.
+       Therefore its center NEVER changes.
+    */
+
+    width:360px;
+    height:250px;
+
+    position:relative;
+
+    animation:envelopeAppear .9s ease;
+}
+
+@keyframes envelopeAppear{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+
+.envelope{
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    background:#b99a6e;
+
+    border:1px solid #765b3e;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.65),
+        inset 0 0 35px rgba(60,38,20,.3);
+}
+
+.envelope::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.12;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 3px,
+            #4e3823 4px
+        );
+}
+
+
+/* Flap */
+
+.flap{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:180px solid transparent;
+    border-right:180px solid transparent;
+    border-top:125px solid #c9ac7e;
+
+    z-index:5;
+
+    transform-origin:top center;
+
+    transition:
+        transform 1s ease;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+
+/* Sides */
+
+.left{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:125px solid transparent;
+    border-bottom:125px solid transparent;
+    border-left:180px solid #a7865d;
+
+    z-index:3;
+}
+
+.right{
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-top:125px solid transparent;
+    border-bottom:125px solid transparent;
+    border-right:180px solid #a7865d;
+
+    z-index:3;
+}
+
+.bottom{
+    position:absolute;
+
+    left:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-left:180px solid transparent;
+    border-right:180px solid transparent;
+    border-bottom:125px solid #b18f65;
+
+    z-index:4;
+}
+
+
+/* Envelope title */
+
+.envelope-title{
+    position:absolute;
+
+    top:26px;
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    z-index:2;
+
+    font-family:"Special Elite",serif;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    color:#654a31;
+}
+
+
+/* Seal */
+
+.seal{
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    width:62px;
+    height:62px;
+
+    margin-left:-31px;
+    margin-top:-31px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    z-index:8;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #8b4140,
+            #681f22 60%,
+            #461417
+        );
+
+    color:#e8c999;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:32px;
+
+    box-shadow:
+        0 7px 12px rgba(0,0,0,.35),
+        inset 0 0 9px rgba(0,0,0,.3);
+
+    transition:.5s;
+}
+
+.envelope.open .seal{
+    opacity:0;
+    transform:scale(.2);
+}
+
+.envelope-hint{
+    position:absolute;
+
+    top:calc(100% + 20px);
+
+    left:0;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#cdb28d;
+
+    font-family:"Special Elite",serif;
+
+    font-size:10px;
+
+    letter-spacing:3px;
+}
+
+
+/* ==================================================
+   LETTER
+================================================== */
+
+.letter{
+    display:none;
+
+    /*
+       IMPORTANT:
+       No translate.
+       No rotate.
+       No left:50%.
+       The parent GRID centers this element exactly.
+    */
+
+    width:min(680px, calc(100vw - 24px));
+
+    max-height:calc(100vh - 24px);
+
+    overflow-y:auto;
+
+    position:relative;
+
+    padding:52px 48px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8dc,
+            #dec18d
+        );
+
+    color:#302219;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7),
+        inset 0 0 70px rgba(80,50,22,.2);
+
+    animation:letterAppear .9s ease;
+}
+
+
+/*
+   Animation only changes opacity and scale.
+   The GRID continues to control the CENTER.
+*/
+
+@keyframes letterAppear{
+
+    from{
+        opacity:0;
+        scale:.94;
+    }
+
+    to{
+        opacity:1;
+        scale:1;
+    }
+}
+
+
+.letter::before{
+    content:"";
+
+    position:absolute;
+
+    inset:9px;
+
+    border:1px solid rgba(80,50,25,.28);
+
+    pointer-events:none;
+}
+
+.letter::after{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 50%,
+            rgba(80,45,20,.18) 100%
+        );
+}
+
+
+/* Corners */
+
+.corner{
+    position:absolute;
+
+    width:35px;
+    height:35px;
+
+    background:#2d2118;
+
+    z-index:4;
+}
+
+.corner.one{
+    top:0;
+    left:0;
+
+    clip-path:
+        polygon(0 0,100% 0,0 100%);
+}
+
+.corner.two{
+    right:0;
+    bottom:0;
+
+    clip-path:
+        polygon(100% 100%,0 100%,100% 0);
+}
+
+
+/* Letter content */
+
+.date{
+    position:relative;
+    z-index:5;
+
+    text-align:right;
+
+    font-family:"Special Elite",serif;
+
+    font-size:11px;
+
+    color:#6b5137;
+
+    margin-bottom:25px;
+}
+
+.dear{
+    position:relative;
+    z-index:5;
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:24px;
+
+    font-weight:600;
+
+    margin-bottom:22px;
+}
+
+.letter-text{
+    position:relative;
+    z-index:5;
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:16px;
+
+    line-height:2;
+}
+
+.letter-text p{
+    margin-bottom:17px;
+}
+
+.highlight{
+    color:#66342c;
+    font-weight:700;
+}
+
+.signature{
+    position:relative;
+    z-index:5;
+
+    margin-top:25px;
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+.ps{
+    position:relative;
+    z-index:5;
+
+    margin-top:23px;
+
+    padding-top:15px;
+
+    border-top:1px dashed rgba(70,45,25,.35);
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    color:#654c35;
+}
+
+.next-btn{
+    position:relative;
+    z-index:6;
+
+    margin-top:25px;
+
+    padding:12px 24px;
+
+    border:0;
+
+    background:#5b2925;
+
+    color:#efd9b2;
+
+    cursor:pointer;
+
+    font-family:"Noto Serif Bengali",serif;
+}
+
+
+/* ==================================================
+   FINAL SCREEN
+================================================== */
+
+.final{
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    place-items:center;
+
+    padding:20px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #42291f,
+            #0c0806 75%
+        );
+}
+
+.final.show{
+    display:grid;
+
+    animation:finalFade 1.2s ease;
+}
+
+@keyframes finalFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+.final-content{
+    width:100%;
+    max-width:650px;
+}
+
+.big-heart{
+    font-size:65px;
+
+    animation:heartbeat 1.25s infinite;
+}
+
+@keyframes heartbeat{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.16);
+    }
+}
+
+.final-small{
+    margin-top:18px;
+
+    font-family:"Special Elite",serif;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:#a88a67;
+}
+
+.final-title{
+    margin-top:8px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:clamp(55px,13vw,105px);
+
+    color:#ead7b8;
+}
+
+.final-text{
+    margin-top:12px;
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:17px;
+
+    line-height:2;
+
+    color:#cdb895;
+}
+
+.from{
+    margin-top:25px;
+
+    font-family:"Noto Serif Bengali",serif;
+
+    font-size:14px;
+
+    color:#aa8c68;
+}
+
+.from strong{
+    display:block;
+
+    margin-top:5px;
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:40px;
+
+    font-weight:400;
+
+    color:#ead7b8;
+}
+
+.close-btn{
+    margin-top:28px;
+
+    padding:11px 24px;
+
+    border:1px solid #927653;
+
+    background:transparent;
+
+    color:#d9bd95;
+
+    cursor:pointer;
+
+    font-family:"Noto Serif Bengali",serif;
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media(max-width:600px){
+
+    .stage{
+        padding:12px;
+    }
+
+    .envelope-wrap{
+        width:310px;
+        height:215px;
+    }
+
+    .flap{
+        border-left-width:155px;
+        border-right-width:155px;
+        border-top-width:108px;
+    }
+
+    .left{
+        border-top-width:108px;
+        border-bottom-width:108px;
+        border-left-width:155px;
+    }
+
+    .right{
+        border-top-width:108px;
+        border-bottom-width:108px;
+        border-right-width:155px;
+    }
+
+    .bottom{
+        border-left-width:155px;
+        border-right-width:155px;
+        border-bottom-width:108px;
+    }
+
+    .letter{
+        width:calc(100vw - 20px);
+
+        max-height:calc(100vh - 20px);
+
+        padding:40px 23px 35px;
+    }
+
+    .dear{
+        font-size:21px;
+    }
+
+    .letter-text{
+        font-size:15px;
+        line-height:1.9;
+    }
+
+    .signature{
+        font-size:16px;
+    }
+
+    .final-text{
+        font-size:15px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="bg"></div>
+<div class="vignette"></div>
+
+
+<!-- DUST -->
+
+<div class="dust">
+    <span style="left:8%;top:15%"></span>
+    <span style="left:19%;top:70%"></span>
+    <span style="left:33%;top:27%"></span>
+    <span style="left:48%;top:82%"></span>
+    <span style="left:62%;top:18%"></span>
+    <span style="left:76%;top:65%"></span>
+    <span style="left:89%;top:25%"></span>
+</div>
+
+
+<!-- ==================================================
+     MAIN CENTER STAGE
+================================================== -->
+
+<div class="stage">
+
+
+    <!-- INTRO -->
+
+    <div class="intro" id="intro">
+
+        <div class="intro-small">
+            A LITTLE SOMETHING FOR
+        </div>
+
+        <h1>
+            Mahi Akter
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            কিছু কথা মেসেজে বলা যায় না...<br>
+            তাই আজ একটু পুরোনো পদ্ধতিতে বলা হোক।
+        </p>
+
+        <button
+            class="start-btn"
+            onclick="showEnvelope()"
+        >
+            OPEN THE LETTER
+        </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         ENVELOPE
+    ================================================== -->
+
+    <div
+        class="envelope-wrap"
+        id="envelopeWrap"
+        onclick="openEnvelope()"
+    >
+
+        <div
+            class="envelope"
+            id="envelope"
+        >
+
+            <div class="envelope-title">
+                PERSONAL & PRIVATE
+            </div>
+
+            <div class="flap"></div>
+
+            <div class="left"></div>
+
+            <div class="right"></div>
+
+            <div class="bottom"></div>
+
+            <div class="seal">
+                M
+            </div>
+
+        </div>
+
+        <div class="envelope-hint">
+            CLICK THE SEAL TO OPEN
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         LETTER
+    ================================================== -->
+
+    <article
+        class="letter"
+        id="letter"
+    >
+
+        <div class="corner one"></div>
+        <div class="corner two"></div>
+
+
+        <div class="date">
+            A Letter From Another Time
+        </div>
+
+
+        <div class="dear">
+            প্রিয় মাহি,
+        </div>
+
+
+        <div class="letter-text">
+
+            <p>
+                কীভাবে শুরু করব বুঝতে পারছি না।
+                পুরোনো দিনের চিঠির মতো করে লিখতে বসেছি,
+                কারণ কিছু কথা আছে যেগুলো মেসেজে লিখলে
+                কেমন যেন ঠিক জমে না।
+            </p>
+
+            <p>
+                তুই আমার কাছে শুধু একজন বন্ধু না,
+                তুই আমার সেই মানুষগুলোর একজন
+                যার সাথে অকারণে কথা বললেও ভালো লাগে,
+                যার সাথে ঝগড়া করেও কিছুক্ষণ পর আবার
+                কথা বলতে ইচ্ছে করে,
+                আর যার সাথে সবচেয়ে সাধারণ একটা দিনও
+                কেমন করে যেন একটু বেশি সুন্দর হয়ে যায়।
+            </p>
+
+            <p>
+                জীবনে অনেক মানুষ আসে,
+                কেউ কিছুদিন থাকে, কেউ হারিয়ে যায়।
+                কিন্তু কিছু মানুষ থাকে,
+                যাদের সাথে তৈরি হওয়া স্মৃতিগুলো
+                সময় পেরিয়ে গেলেও পুরোনো হয় না।
+            </p>
+
+            <p class="highlight">
+                তুই ঠিক তেমনই একজন।
+            </p>
+
+            <p>
+                আমাদের কত হাসাহাসি,
+                কত আজব কথা,
+                কত unnecessary ঝগড়া,
+                কত random conversation—
+                সবকিছু হয়তো একদিন অনেক পুরোনো হয়ে যাবে,
+                কিন্তু বিশ্বাস কর,
+                এই ছোট ছোট ব্যাপারগুলোর মূল্য তখন
+                আরও বেশি বুঝব।
+            </p>
+
+            <p>
+                তোর একটা জিনিস আমার সবচেয়ে ভালো লাগে—
+                তুই নিজের মতো করে থাকিস।
+                তোর হাসি, তোর পাগলামি,
+                তোর রাগ, তোর অভিমান—
+                সব মিলিয়েই তুই “মাহি”।
+            </p>
+
+            <p>
+                আর সেই মাহিটাই আমার খুব প্রিয় একজন মানুষ।
+            </p>
+
+            <p>
+                জীবন সবসময় একইরকম থাকবে না।
+                আমরা হয়তো ব্যস্ত হয়ে যাব,
+                অনেক দূরে চলে যাব,
+                প্রতিদিন কথা নাও হতে পারে।
+                কিন্তু একটা কথা মনে রাখিস—
+            </p>
+
+            <p class="highlight">
+                কখনো যদি মনে হয়,
+                “আমার একজন পুরোনো বন্ধু দরকার,”
+                তাহলে আমাকে ডাকিস।
+            </p>
+
+            <p>
+                হয়তো সঙ্গে সঙ্গে সব সমস্যার সমাধান
+                করতে পারব না,
+                কিন্তু তোর কথা শোনার জন্য
+                আমি থাকব।
+            </p>
+
+            <p>
+                শেষে শুধু এটুকুই বলি—
+                আমাদের এই বন্ধুত্বটা যেন
+                পুরোনো চিঠির মতো হয়;
+                সময় যতই যাক,
+                কাগজটা একটু হলুদ হয়ে যাক,
+                কালিটা একটু ফিকে হয়ে যাক,
+                তবুও গল্পটা যেন কখনো পুরোনো না হয়।
+            </p>
+
+            <p>
+                ভালো থাকিস, পাগলি।
+                অনেক হাসিস।
+                আর হ্যাঁ—
+                আমাকে ভুলে গেলে কিন্তু এই চিঠিটা
+                প্রমাণ হিসেবে রেখে দেব! 😌
+            </p>
+
+        </div>
+
+
+        <div class="signature">
+            তোরই বন্ধু,<br>
+            যে তোকে মাঝে মাঝে বিরক্ত করে,<br>
+            কিন্তু সত্যি সত্যিই অনেক আপন ভাবে। ❤️
+        </div>
+
+
+        <div class="ps">
+            P.S. এই চিঠিটা পড়ে যদি হাসিস,
+            তাহলে ধরে নেব আমার little mission successful. 😌
+        </div>
+
+
+        <button
+            class="next-btn"
+            onclick="showFinal()"
+        >
+            আরেকটা ছোট্ট কথা আছে...
+        </button>
+
+    </article>
+
+</div>
+
+
+<!-- ==================================================
+     FINAL REVEAL
+================================================== -->
+
+<div
+    class="final"
+    id="final"
+>
+
+    <div class="final-content">
+
+        <div class="big-heart">
+            ❤️
+        </div>
+
+        <div class="final-small">
+            THIS LETTER WAS FROM
+        </div>
+
+        <div class="final-title">
+            Your Best Friend
+        </div>
+
+        <div class="final-text">
+            কিছু বন্ধুত্বের কোনো নাম লাগে না।<br>
+            শুধু মানুষটা পাশে থাকলেই হয়।<br><br>
+
+            তুই আমার কাছে ঠিক তেমনই একজন। 🫶
+        </div>
+
+        <div class="from">
+            With love & friendship,
+            <strong>Sobuj Khan</strong>
+        </div>
+
+        <button
+            class="close-btn"
+            onclick="closeFinal()"
+        >
+            এই secret-টা রেখে দিস 🤫
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ==================================================
+   INTRO → ENVELOPE
+================================================== */
+
+function showEnvelope(){
+
+    const intro =
+        document.getElementById("intro");
+
+    intro.classList.add("hide");
+
+    setTimeout(function(){
+
+        intro.style.display="none";
+
+        document.getElementById("envelopeWrap")
+            .style.display="block";
+
+    },800);
+}
+
+
+/* ==================================================
+   ENVELOPE → LETTER
+================================================== */
+
+function openEnvelope(){
+
+    const envelope =
+        document.getElementById("envelope");
+
+    envelope.classList.add("open");
+
+    setTimeout(function(){
+
+        document.getElementById("envelopeWrap")
+            .style.display="none";
+
+        document.getElementById("letter")
+            .style.display="block";
+
+    },1100);
+}
+
+
+/* ==================================================
+   FINAL REVEAL
+================================================== */
+
+function showFinal(){
+
+    document
+        .getElementById("final")
+        .classList.add("show");
+
+    createHearts();
+}
+
+
+/* ==================================================
+   HEARTS
+================================================== */
+
+function createHearts(){
+
+    const icons=[
+        "❤️",
+        "🤎",
+        "✨",
+        "💌",
+        "🌹"
+    ];
+
+    for(let i=0;i<40;i++){
+
+        setTimeout(function(){
+
+            const heart =
+                document.createElement("div");
+
+            heart.className="heart";
+
+            heart.innerHTML =
+                icons[
+                    Math.floor(
+                        Math.random()*icons.length
+                    )
+                ];
+
+            heart.style.left =
+                Math.random()*100+"vw";
+
+            heart.style.fontSize =
+                (14 + Math.random()*24)+"px";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function(){
+
+                heart.style.transform =
+                    "translateY(-" +
+                    (window.innerHeight+150) +
+                    "px) rotate(" +
+                    (Math.random()*360) +
+                    "deg)";
+
+                heart.style.opacity="0";
+
+            },50);
+
+            setTimeout(function(){
+
+                heart.remove();
+
+            },4200);
+
+        },i*70);
+    }
+}
+
+
+/* ==================================================
+   CLOSE FINAL
+================================================== */
+
+function closeFinal(){
+
+    document
+        .getElementById("final")
+        .classList.remove("show");
+
+}
+
+</script>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
